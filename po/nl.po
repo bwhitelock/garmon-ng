@@ -7063,32 +7063,40 @@ msgstr ""
 "    terwijl een herkalibratie wordt uitgevoerd."
 
 #: ../plugins/dtc_reader/dtc_reader.glade.h:1
+#: ../plugins/dtc_lookup/dtc_lookup.glade.h:1
 msgid "<b>Additional Info</b>"
 msgstr "<d>Extra Informatie</b>"
 
 #: ../plugins/dtc_reader/dtc_reader.glade.h:2
+#: ../plugins/dtc_lookup/dtc_lookup.glade.h:2
 msgid "<b>DTC Code Class</b>"
 msgstr "<b>DTC klasse</b>"
 
 #: ../plugins/dtc_reader/dtc_reader.glade.h:3
+#: ../plugins/dtc_lookup/dtc_lookup.glade.h:3
 msgid "<b>DTC Code</b>"
 msgstr "<b>DTC Code</b>"
 
 #: ../plugins/dtc_reader/dtc_reader.glade.h:4
+#: ../plugins/dtc_lookup/dtc_lookup.glade.h:4
 msgid "<b>Description</b>"
 msgstr "<b>Omschrijving</b>"
 
 #: ../plugins/dtc_reader/dtc_reader.glade.h:5
+#: ../plugins/dtc_lookup/dtc_lookup.glade.h:5
 #: ../plugins/freeze_frame_data/freeze_frame_data.glade.h:21
 msgid "Re-read"
 msgstr "Herlees"
 
 #: ../plugins/dtc_reader/dtc_reader.py:42
+#: ../plugins/dtc_lookup/dtc_lookup.py:42
 #: ../plugins/dtc_reader/dtc_reader.py:165
+#: ../plugins/dtc_lookup/dtc_lookup.py:165
 msgid "DTC Reader"
 msgstr "DTC Lezer"
 
 #: ../plugins/dtc_reader/dtc_reader.py:45
+#: ../plugins/dtc_lookup/dtc_lookup.py:45
 msgid "Reads the stored trouble codes from the vehicle"
 msgstr "Leest de opgeslagen foutcodes van het voertuig"
 
@@ -7096,6 +7104,7 @@ msgstr "Leest de opgeslagen foutcodes van het voertuig"
 #. text=COLUMN_CODE)
 #. treeview.append_column(column)
 #: ../plugins/dtc_reader/dtc_reader.py:89
+#: ../plugins/dtc_lookup/dtc_lookup.py:89
 msgid "DTC"
 msgstr "DTC"
 

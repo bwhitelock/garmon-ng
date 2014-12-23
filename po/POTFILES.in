@@ -20,6 +20,8 @@ plugins/dashboard/dashboard.py
 plugins/dtc_clearer/dtc_clearer.py
 plugins/dtc_reader/dtc_reader.glade
 plugins/dtc_reader/dtc_reader.py
+plugins/dtc_lookup/dtc_lookup.glade
+plugins/dtc_lookup/dtc_lookup.py
 plugins/freeze_frame_data/freeze_frame_data.glade
 plugins/freeze_frame_data/freeze_frame_data.py
 plugins/live_data/live_data.glade

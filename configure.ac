@@ -45,6 +45,7 @@ data/garmon.desktop.in
 plugins/Makefile
 plugins/dashboard/Makefile
 plugins/dtc_clearer/Makefile
+plugins/dtc_lookup/Makefile
 plugins/dtc_reader/Makefile
 plugins/live_data/Makefile
 plugins/freeze_frame_data/Makefile

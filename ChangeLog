@@ -1,0 +1,870 @@
+2009-05-04  Ben Van Mechelen  <me@benvm.be>
+
+        * configure.ac:
+            update version to 0.3.1
+
+
+2009-05-04  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    don't import gconf. fix #5
+	    
+
+2009-05-03  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    Update info in about dialog
+	
+
+2009-05-03  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	    change version to 0.3.0
+
+
+2009-05-03  Ben Van Mechelen  <me@benvm.be>
+
+	* aclocal.m4:
+        remove from repo
+        
+
+2009-05-02  Ben Van Mechelen  <me@benvm.be>
+
+	* acinclude.m4:
+	    Added AM_CHECK_PYMOD 
+	* configure.ac:
+	    Check for pyserial module
+	    see #2
+	    
+
+2009-03-23  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/trouble_codes.py:
+	    make trouble codes translatable, see #2707333
+	    
+
+2009-03-23  Ben Van Mechelen  <me@benvm.be>
+
+	* aclocal.m4:
+	* configure.ac:
+	* data/Makefile.am:
+	* garmon/__init__.py:
+	* garmon/defs.py.in:
+	* plugins/Makefile.am:
+	    Update to the project layout
+	    Install plugins in a subdir of the python module
+	
+
+2009-03-23  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    Add an icon to all windows
+    
+
+2009-03-23  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/plugin_manager.py:
+	* garmon/scheduler.py:
+	* plugins/dashboard/dashboard.py:
+	    All strings were not yet translatable
+        Don't translate debug strings
+
+
+2009-02-27  Ben Van Mechelen  <me@benvm.be>
+
+	* aclocal.m4:
+	* configure.ac:
+	    Check for pygtk in configure
+	
+
+2009-02-19  Ben Van Mechelen  <me@benvm.be>
+
+	* aclocal.m4:
+	* configure.ac:
+	* data/Makefile.am:
+	* data/garmon.schemas:
+	* garmon/defs.py.in:
+	* garmon/garmon_app.py:
+	* garmon/plugin_manager.py:
+	* garmon/prefs.py:
+	* garmon/widgets.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	* plugins/live_data/live_data.py:
+	    Get rid of gconf completely, using only ConfigParser now
+	    
+
+2009-02-18  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/backdoor.py:
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	* garmon/plugin.py:
+	* garmon/plugin_manager.py:
+	* garmon/prefs.py:
+	* garmon/scheduler.py:
+	* garmon/sensor.py:
+	* garmon/trouble_codes.py:
+	* garmon/widgets.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/dtc_clearer/dtc_clearer.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	* plugins/live_data/live_data.py:
+	    correct license and copyright info
+	    
+
+2009-02-18  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	* garmon/__init__.py:
+	* garmon/defs.py.in:
+	* garmon/garmon_app.py:
+	* garmon/prefs.py:
+	    Use python's ConfigParser instead of gconf
+	    
+
+2009-01-28  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    Add e-mail address to about box
+	    
+
+2008-12-06  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    Improve readability of console messages when
+	    there are a lot of pids
+	    
+
+2008-12-06  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/__init__.py:
+	* garmon/garmon:
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	* garmon/plugin_manager.py:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	* plugins/live_data/live_data.py:
+	    Make use of the logging facilities in python
+	    to display messages
+	    
+
+2008-12-05  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	* garmon/plugin_manager.py:
+	* garmon/prefs.py:
+	* garmon/sensor.py:
+	* plugins/dashboard/dashboard.py:
+	    Make some code a bit more pythonic + cleanups
+
+2008-10-21  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	    Remove obsolete FreezeFrameDataView class
+
+
+2008-10-21  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	    bump version to 0.2.1
+	    
+
+2008-10-20  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/scheduler.py:
+	    Fix the add method
+	    
+
+2008-10-17  Ben Van Mechelen  <me@benvm.be>
+
+	* data/garmon.schemas:
+	    list plugins correctly in plugins.saved schema
+	    
+
+2008-10-17  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/freeze_frame_data/freeze_frame_data.glade:
+	* plugins/live_data/live_data.glade:
+	    small changes in the layout
+	
+
+2008-10-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    Add update_name property to SensorProgressView
+	* plugins/freeze_frame_data/freeze_frame_data.glade:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	    make the gui look like LiveData
+	
+
+2008-10-16  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	* plugins/Makefile.am:
+	* plugins/o2_sensors/Makefile.am:
+	* plugins/o2_sensors/o2_sensors.glade:
+	* plugins/o2_sensors/o2_sensors.py:
+	    remove o2 sensors plugin
+	    
+
+2008-10-16  Ben Van Mechelen  <me@benvm.be>
+
+	* scripts/elm_sim.py:
+	    add pid responses for egr valve
+	    
+
+2008-10-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/sensor.py:
+	    correct egr_error so it returns an int
+
+
+2008-10-15  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/sensor.py:
+	    rename lambda to o2
+	    add egr functions
+	* garmon/widgets.py:
+	    remove UnitMixin from ProgressView
+	* plugins/live_data/live_data.glade:
+	* plugins/live_data/live_data.py:
+	    Add a deactivate_all button
+	    Add egr widgets
+	
+
+2008-10-15  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    adjust window size
+	* plugins/live_data/live_data.glade:
+	    new layout
+	* plugins/live_data/live_data.py:
+	    update for the new layout
+	
+
+2008-10-14  Ben Van Mechelen  <me@benvm.be>
+
+	* aclocal.m4:
+	    ???
+	* garmon/__init__.py:
+	    get version always from defs.py
+	* garmon/garmon_app.py:
+	    correct website in about box
+	* plugins/dashboard/dashboard.py:
+	* plugins/dtc_clearer/dtc_clearer.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	* plugins/live_data/live_data.glade:
+	* plugins/live_data/live_data.py:
+	* plugins/o2_sensors/o2_sensors.py:
+	    change version to 0.2
+	    
+
+2008-10-11  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    remove old classes
+	    fix bugs in the new ones
+	* plugins/live_data/live_data.py:
+	    add a progress widget for testing
+	* scripts/elm_sim.py:
+	    changed pid responses for o2 sensors
+	    
+
+2008-10-03  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    SensorView and CommandView inherit from new BaseView Class
+	    Created a new class SensorProgressView
+	    
+
+2008-10-01  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.py:
+	    Inherit from EventBox so we can catch events and
+	    (de)activate gauges
+	    
+
+2008-09-26  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.glade:
+	* plugins/dashboard/dashboard.py:
+	    add an alignment to center the widgets in the window
+
+
+2008-09-26  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/freeze_frame_data/freeze_frame_data.glade:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	    gui improvements and addition of O2 sensors
+	* plugins/live_data/live_data.glade:
+	    gui improvements
+	    
+
+2008-09-25  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.py:
+	    make MIL widget and trouble codes active by default
+	
+
+2008-09-25  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.glade:
+	    gui improvements
+	    
+
+2008-09-25  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.glade:
+	* plugins/live_data/live_data.py:
+	* plugins/o2_sensors/o2_sensors.glade:
+	    Add O2 sensors
+	    
+
+2008-09-24  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/scheduler.py:
+	    only update a sensor when we are self.working
+	    
+
+2008-09-23  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/o2_sensors/o2_sensors.py:
+	    correct copyright notice
+	    
+
+2008-09-23  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    Add an update-name property
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	    use SensorView widget instead of FreezeFrameDataView
+    
+
+2008-09-20  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/o2_sensors/o2_sensors.py:
+	    corrected copyright notice
+	    
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* scripts/elm_sim.py:
+	    support pids above 0x20
+	
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	* plugins/Makefile.am:
+	    Make sure the new O2 Sensors plugin gets build
+
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dtc_reader/dtc_reader.py:
+	    remove the BITS column from the treeview
+	
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.glade:
+	* plugins/live_data/live_data.py:
+	    gui update: get rid of VIN, voltage gets a button
+	
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    Add CommandView
+	* plugins/live_data/live_data.py:
+	    Remove CommandView and LiveDataView
+	
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.py:
+	* plugins/o2_sensors/o2_sensors.py:
+	    Don't automatically enable supported sensors
+	    
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/o2_sensors/Makefile.am:
+	* plugins/o2_sensors/o2_sensors.glade:
+	* plugins/o2_sensors/o2_sensors.py:
+	    Add a new plugin for O2 Sensors
+	    
+
+2008-09-12  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    copy LiveDataView to widgets.py so more plugins can use it,
+	    it is now called SensorView
+	    
+
+2008-09-11  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/sensor.py:
+	    Change PID info of the O2 sensors
+	
+
+2008-09-10  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/sensor.py:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	    remove some messages regarding decode_dtc_code
+	    
+
+2008-09-10  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    only read supported freeze_frame_pids if we are connected
+	
+
+2008-09-10  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* garmon/sensor.py:
+	* plugins/freeze_frame_data/freeze_frame_data.glade:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	* scripts/elm_sim.py:
+	    Make the freeze Frame Data plugin actually do something
+	    Put a Read button in the plugin
+	    
+
+2008-09-10  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/sensor.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	* scripts/elm_sim.py:
+	    fix decode_dtc_code and move it to sensor.py
+
+
+2008-09-10  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	* garmon/obd_device.py:
+	* garmon/sensor.py:
+	* plugins/Makefile.am:
+	* plugins/dtc_clearer/dtc_clearer.py:
+	* plugins/freeze_frame_data/Makefile.am:
+	* plugins/freeze_frame_data/freeze_frame_data.glade:
+	* plugins/freeze_frame_data/freeze_frame_data.py:
+	* scripts/elm_sim.py:
+	    First work on the Freeze Frame Data plugin
+	    
+
+2008-09-10  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.py:
+	    fix _notify_units_cb to update all views
+	    
+
+2008-09-08  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	    Bump version to 0.2.0
+
+
+2008-09-08  Ben Van Mechelen  <me@benvm.be>
+
+	* TODO.tasks:
+	* plugins/Makefile.am:
+	* plugins/sensor_list/Makefile.am:
+	* plugins/sensor_list/sensor_list.py:
+	    Removed the sensor_list plugin
+
+
+2008-09-05  Ben Van Mechelen  <me@benvm.be>
+
+	* aclocal.m4:
+	* data/garmon.schemas:
+	    Added all present gconf keys to the schema file
+	    
+
+2008-09-05  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* plugins/dtc_clearer/dtc_clearer.py:
+        Fixed clear_dtc to use the async approach
+        
+
+2008-06-05  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	    Set the baudrate of the device correctly
+	
+
+2008-06-04  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/live_data/live_data.py:
+	    remove some print statements
+	    obd designation is now a oneshot view
+	
+
+2008-06-04  Ben Van Mechelen  <me@benvm.be>
+
+	* data/prefs.glade:
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	* garmon/prefs.py:
+	* garmon/scheduler.py:
+    * scripts/elm_sim.py:
+	    Try to increase speed
+	       -Add a baudrate preference.
+	       -Try to increase baudrate after connection (needs investigation)
+           -Add a refresh rate label to the statusbar
+
+
+2008-05-30  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	* data/Makefile.am:
+	* data/garmon.schemas:
+	* data/prefs.glade:
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	    Fix the gconf magic.
+	    
+
+2008-05-29  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/plugin_manager.py:
+	    Removed all startable and stoppable stuff as all plugins
+	    need to implement start and stop methods 
+
+
+2008-05-29  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dtc_clearer/dtc_clearer.py:
+	    Implement start and stop methods
+	
+
+2008-05-20  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    Add a method to read special commands
+	* garmon/scheduler.py:
+	* garmon/sensor.py:
+	* garmon/widgets.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/live_data/live_data.glade:
+	* plugins/live_data/live_data.py:
+		new Command and Sensor class
+	    got rid of OBDData and friends
+	* scripts/elm_sim.py:
+	    better simulate the behaviour of an ELM device
+
+
+2008-05-08  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dtc_clearer/dtc_clearer.py:
+        implement unload method
+        
+
+2008-05-06  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	    implemented get_mil and get_dtc_num
+	    
+
+2008-05-06  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    Add interface to base class
+	* garmon/plugin.py:
+	    Add interface to base class
+	    inherit from GObject
+	* plugins/dashboard/dashboard.py:
+	* plugins/dtc_clearer/dtc_clearer.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	* plugins/live_data/live_data.py:
+        call Plugin.__init__
+
+
+2008-05-05  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* garmon/plugin.py:
+	* garmon/scheduler.py:
+	* garmon/sensor.py:
+	* plugins/dtc_reader/dtc_reader.glade:
+	* plugins/dtc_reader/dtc_reader.py:
+	    change the way dtcs are read
+	    
+
+2008-05-03  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    tried to subclass IOBDDevice from GInterface but this causes
+	    a segfault. Placed a comment above the class defintion.
+	    
+
+2008-05-03  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/dtc_clearer/dtc_clearer.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	* plugins/live_data/live_data.py:
+	    change GarmonApp.obd to GarmonApp.device
+
+
+2008-05-03  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	    created an interface and a base class for OBD devices
+	* plugins/dashboard/dashboard.py:
+	    don't update _needle_gc when it is not yet created
+	    
+
+2008-05-02  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.py:
+	    Remove obsolete notify callbacks
+	    check pspec.name in notify_needle_cb, not pspec 
+	    
+
+2008-05-02  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* plugins/live_data/live_data.py:
+	    remove some unused functions
+
+
+2008-05-02  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    don't try to determine the data type in port_io_watch_cb,
+	    only: SEARCHING, NO DATA, ?, etc
+	    
+
+2008-04-29  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/prefs.py:
+	    don't raise an exception when a plugin tries to resgister
+	    a preference that already exists.
+	     
+
+2008-04-29  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.py:
+	* plugins/live_data/live_data.py:
+	    call _obd_connected_cb in __init__
+	
+
+2008-04-29  Ben Van Mechelen  <me@benvm.be>
+
+	* configure.ac:
+	    define major, minor and micro version
+	    expand GARMON_VERSION
+	* garmon/__init__.py:
+	* garmon/defs.py.in:
+	* garmon/garmon_app.py:
+	    set version from expanded variable in about dialog	    
+	
+
+2008-04-27  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.py:
+	    prevent the gauges from pointing beyond their range
+
+
+2008-04-27  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	* garmon/scheduler.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/live_data/live_data.py:
+	    Lots and lots of changes to make OBDDevice actually work :)
+        
+        
+2008-04-26  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    close method always emits the connected signal
+
+
+2008-04-26  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/obd_device.py:
+	* garmon/scheduler.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/live_data/live_data.py:
+	    Reworked OBDDevice: We are now using add_io_watch.
+	    We send a command to the device and just wait for the 
+	    io signal. Depending on success or error we call a supplied
+	    callback. Not all methods have been adjusted yet!!!.
+	    
+
+2008-04-25  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.py:
+	* plugins/dtc_reader/dtc_reader.py:
+	    disconnect from signals on plugin deactivation
+	* scripts/elm_sim.py:
+	    change baudrate to 9600
+	    
+
+2008-04-23  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.py:
+	    new gauge type: LowGauge
+	    
+
+2008-04-21  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/prefs.py:
+	    rename Preference to _Preference 
+
+
+2008-04-21  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    Specify the portname in obd_device.open() when resetting 
+	* garmon/obd_device.py:
+	    Add error checking in open method
+	* plugins/dashboard/dashboard.py:
+	    Some visual clean-ups
+
+
+2008-04-21  Ben Van Mechelen  <me@benvm.be>
+
+	* plugins/dashboard/dashboard.glade:
+	* plugins/dashboard/dashboard.py:
+	    Add the plugin prefs including a notebook page to PrefsManager
+
+
+2008-04-19  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/prefs.py:
+	    Remove obsolete code from PluginManager and GarmonApp
+
+
+2008-04-18  Ben Van Mechelen  <me@benvm.be>
+
+	* data/prefs.glade:
+	* garmon/garmon_app.py:
+	* garmon/plugin_manager.py:
+	* garmon/prefs.py:
+	* garmon/widgets.py:
+	* plugins/dashboard/dashboard.py:
+	* plugins/live_data/live_data.py:
+	    plugins now using new PreferencesManager interface
+	
+
+2008-04-18  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:  
+	* garmon/plugin_manager.py:
+	    Use the new PreferencesManager
+	    
+	* garmon/prefs.py:
+	    Get rid of gclient in PrefsDialog
+
+
+2008-04-18  Ben Van Mechelen  <me@benvm.be>
+
+	* data/prefs.glade:
+	* garmon/garmon_app.py:
+	* garmon/prefs.py:
+	    We now have a PreferencesManager class. New prefs can 
+	    be registered. These prefs can then be read. It is also possible
+	    to connect to a notify signal when a value is changed.
+
+2008-04-17  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/__init__.py:
+	* garmon/garmon_app.py:
+	* garmon/prefs.py:
+	    Created a Preferences class from which the prefs can be obtained
+	* garmon/property_object.py:
+	    fixed a typo
+	* garmon/widgets.py:
+	* plugins/live_data/live_data.py:
+	    MilWidget updates itself according to color preferences
+
+2008-04-17  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/__init__.py:
+	* garmon/prefs.py:
+	    replace print with debug()
+
+2008-04-17  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	* garmon/prefs.py:
+	    renamed GarmonPrefs to PrefsDialog
+
+2008-04-17  Ben Van Mechelen  <me@benvm.be>
+
+	* data/garmon.schemas:
+	* data/prefs.glade:
+	* garmon/prefs.py:
+	* garmon/widgets.py:
+	* plugins/live_data/live_data.py:
+	    Added preferences for the colors of the MIL widget
+
+2008-04-17  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	* plugins/live_data/live_data.glade:
+	* plugins/live_data/live_data.py:
+	    LiveData now uses the new MILWidget class 
+
+2008-04-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/widgets.py:
+	    Created a new MILWidget class
+
+2008-04-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/sensor.py:
+	* plugins/live_data/live_data.py:
+	    Fixed a bug in the MIL LiveDataView
+
+2008-04-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/obd_device.py:
+	    fixed some import errors
+	* garmon/scheduler.py:
+	    Add a oneshot queue
+
+2008-04-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/scheduler.py:
+	    Add a QueueItem class. We now add OBDData with the same pid
+	    to the same QueueItem so we have to query the device only once.
+
+2008-04-16  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/plugin_manager.py:
+        Removed reference to NotebookPlugin
+
+2008-04-15  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/plugin.py:
+	    Removed the NotebookPlugin class
+
+2008-04-15  Ben Van Mechelen  <me@benvm.be>
+
+	* garmon/garmon_app.py:
+	    Removed _update_resize_grip method
+
+2008-04-15  Ben Van Mechelen  <me@benvm.be>
+
+	* TODO.tasks:
+	    Removed some completed tasks
+

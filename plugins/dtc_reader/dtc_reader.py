@@ -115,7 +115,7 @@ class DTCReader (gtk.VBox, Plugin):
         if iter:
             dtc = model.get_value(iter, COLUMN_DTC)
             cls = DTC_CODE_CLASSES[dtc[:3]]
-            description = DTC_CODES[dtc]
+            description = model.get_value(iter, COLUMN_DESC)
             additional = 'Coming soon'
         else:
             dtc = cls = description = additional = ''
@@ -145,7 +145,12 @@ class DTCReader (gtk.VBox, Plugin):
             self.treemodel.clear()
             for code in dtcs:
                 dtc = decode_dtc_code(code)
-                desc = DTC_CODES[dtc]
+                desc = 'Code not in Generic or ' + str(self.current_make) + ". Please set vehicle make in preferences."
+                if DTC_CODES.has_key(dtc):
+                    desc = DTC_CODES[dtc]
+                if self.current_make:
+                    if DTC_CODES_MANUFACTURER.has_key(dtc):
+                        desc = DTC_CODES_MANUFACTURER[dtc]
                 iter = self.treemodel.append(None)
                 self.treemodel.set(iter, COLUMN_CODE, code,
                                          COLUMN_DTC, dtc,
@@ -155,6 +160,48 @@ class DTCReader (gtk.VBox, Plugin):
             self._display_port_error_dialog(error)             
 
         self.app.scheduler.working = False
+        self.current_make = self.app.prefs.get("vehicle.make")
+        if self.current_make:
+            if self.current_make == "Acura":
+                from garmon.acura_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Audi":
+                from garmon.audi_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "BMW":
+                from garmon.bmw_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Chrysler":
+                from garmon.chrysler_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Ford":
+                from garmon.ford_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Chevrolet":
+                from garmon.chevrolet_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Honda":
+                from garmon.honda_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Hyundai":
+                from garmon.hyundai_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Infiniti":
+                from garmon.infiniti_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Isuzu":
+                from garmon.isuzu_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Jaguar":
+                from garmon.jaguar_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Kia":
+                from garmon.kia_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Land Rover":
+                from garmon.land_rover_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Lexus":
+                from garmon.lexus_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Mazda":
+               from garmon.mazda_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Mitsubishi":
+                from garmon.mitsubishi_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Nissan":
+                from garmon.nissan_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Subaru":
+                from garmon.subaru_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Toyota":
+                from garmon.toyota_codes import DTC_CODES_MANUFACTURER
+            if self.current_make == "Volkswagen":
+                from garmon.volkswagen_codes import DTC_CODES_MANUFACTURER
         try:
             self.app.device.read_dtc(success_cb, error_cb)          
         except OBDPortError, e:

@@ -133,64 +133,44 @@ class DTCLookup (gtk.VBox, Plugin):
         if self.current_make:
             if self.current_make == "Acura":
                 from garmon.acura_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_ACURA
             if self.current_make == "Audi":
                 from garmon.audi_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_AUDI
             if self.current_make == "BMW":
                 from garmon.bmw_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_BMW
             if self.current_make == "Chrysler":
                 from garmon.chrysler_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_CHRYSLER
             if self.current_make == "Ford":
                 from garmon.ford_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_FORD
             if self.current_make == "Chevrolet":
                 from garmon.chevrolet_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_GMC
             if self.current_make == "Honda":
                 from garmon.honda_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_HONDA
             if self.current_make == "Hyundai":
                 from garmon.hyundai_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_HYUNDAI
             if self.current_make == "Infiniti":
                 from garmon.infiniti_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_INFINITI
             if self.current_make == "Isuzu":
                 from garmon.isuzu_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_ISUZU
             if self.current_make == "Jaguar":
                 from garmon.jaguar_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_JAGUAR
             if self.current_make == "Kia":
                 from garmon.kia_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_KIA
             if self.current_make == "Land Rover":
                 from garmon.land_rover_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_LAND_ROVER
             if self.current_make == "Lexus":
                 from garmon.lexus_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_LEXUS
             if self.current_make == "Mazda":
                from garmon.mazda_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_MAZDA
             if self.current_make == "Mitsubishi":
                 from garmon.mitsubishi_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_MITSUBISHI
             if self.current_make == "Nissan":
                 from garmon.nissan_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_NISSAN
             if self.current_make == "Subaru":
                 from garmon.subaru_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_SUBARU
             if self.current_make == "Toyota":
                 from garmon.toyota_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_TOYOTA
             if self.current_make == "Volkswagen":
                 from garmon.volkswagen_codes import DTC_CODES_MANUFACTURER
-                #self.code_list = DTC_CODES_VW
 
             self.code_list = DTC_CODES_MANUFACTURER
 

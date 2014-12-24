@@ -26,7 +26,7 @@
 
 from gettext import gettext as _
 
-vehicle_makes = ("Accura", "Audi", "BMW", "Chrysler", "Chevrolet", "Ford", "Honda", "Hyundai", "Infiniti", "Isuzu", "Jaguar", "Kia", "Land Rover", "Lexus", "Mazda", "Mitsubishi", "Nissan", "Subaru", "Toyota", "Volkswagen")
+vehicle_makes = ("Acura", "Audi", "BMW", "Chrysler", "Chevrolet", "Ford", "Honda", "Hyundai", "Infiniti", "Isuzu", "Jaguar", "Kia", "Land Rover", "Lexus", "Mazda", "Mitsubishi", "Nissan", "Subaru", "Toyota", "Volkswagen")
 
 DTC_CODES = {
     "P0001": _("Fuel Volume Regulator Control Circuit/Open"),
@@ -1800,8 +1800,8 @@ DTC_CODES = {
 
 DTC_CODE_CLASSES = {
     "P00": _("Fuel and Air Metering and Auxiliary Emission Controls"),
-    "P01": _("Fuel and Air Merering"),
-    "P02": _("Fuel and Air Merering"),
+    "P01": _("Fuel and Air Metering"),
+    "P02": _("Fuel and Air Metering"),
     "P03": _("Ignition System or Misfire"),
     "P04": _("Auxiliary Emission Controls"),
     "P05": _("Vehicle Speed, Idle Control, and Auxiliary Inputs"),
@@ -1811,8 +1811,8 @@ DTC_CODE_CLASSES = {
     "P09": _("Transmission"),
     "P0A": _("Hybrid Propulsion"),
     "P10": _("Manufacturer Controlled Fuel and Air Metering and Auxiliary Emission Controls"),
-    "P11": _("Manufacturer Controlled Fuel and Air Merering"),
-    "P12": _("Fuel and Air Merering"),
+    "P11": _("Manufacturer Controlled Fuel and Air Metering"),
+    "P12": _("Fuel and Air Metering"),
     "P13": _("Ignition System or Misfire"),
     "P14": _("Auxiliary Emission Controls"),
     "P15": _("Vehicle Speed, Idle Control, and Auxiliary Inputs"),

@@ -79,28 +79,9 @@ class DTCLookup (gtk.VBox, Plugin):
         self.pack_start(hpaned, True, True)
         hpaned.set_border_width(5)
 
-        #dtc_frame = self._glade.get_widget('dtc_frame')
-        dtc_frame = self._glade.get_widget('viewport1')
         self.dtc_enter = self._glade.get_widget('dtc_entry')
         self.dtc_enter.connect('activate',self._dtclookup_button_clicked)
 
-
-        self.treemodel = gtk.ListStore(gobject.TYPE_STRING,
-                                                        gobject.TYPE_STRING,
-                                                        gobject.TYPE_STRING)
-        treeview = gtk.TreeView(self.treemodel)
-        treeview.set_rules_hint(True)
-        column = gtk.TreeViewColumn(_('DTC'), gtk.CellRendererText(),
-                                    text=COLUMN_DTC)
-        treeview.append_column(column)
-        
-        selection = treeview.get_selection()
-        selection.set_mode(gtk.SELECTION_SINGLE)
-        selection.connect("changed", self._on_selection_changed)
-        self.view_test = treeview
-
-        dtc_frame.add(treeview)
-        
         self.show_all()
         
         self._reset_cbid = app.connect("reset", self._on_reset)
@@ -109,38 +90,11 @@ class DTCLookup (gtk.VBox, Plugin):
 
 
     def _on_reset(self, app):
-        #if app.device.connected:
-            #self.start()
         self.start()
 
 
     def _reread_button_clicked(self, app):
         self.start()
-        
-
-    def _on_selection_changed(self, selection):
-        treeview = selection.get_tree_view()
-        model, iter = selection.get_selected()
-        
-        if iter:
-            dtc = model.get_value(iter, COLUMN_DTC)
-            cls = DTC_CODE_CLASSES[dtc[:3]]
-            if self.current_make:
-                if self.code_list.has_key(dtc):
-                    description = self.code_list[dtc]
-                else:
-                    description = DTC_CODES[dtc]
-            else:
-                description = DTC_CODES[dtc]
-            additional = 'Coming soon'
-        else:
-            dtc = cls = description = additional = ''
-            
-        self._dtc_info.code = dtc
-        self._dtc_info.code_class = cls
-        self._dtc_info.description = description
-        self._dtc_info.additional = additional
-        self._dtc_info.lookup = dtc
 
 
     def _notebook_page_change_cb (self, notebook, no_use, page):
@@ -150,86 +104,96 @@ class DTCLookup (gtk.VBox, Plugin):
 
 
     def _dtclookup_button_clicked(self, button):
-        temp_text = self.dtc_enter.get_text()
-        temp_text = temp_text.upper()
-        row = self.treemodel.get_iter_first()
-        counter = 0
-        while row != None:
-            text = self.treemodel.get_value(row, COLUMN_DTC)
-            if str(text) == temp_text:
-                self.view_test.set_cursor_on_cell(counter)
-                self.view_test.set_cursor(counter)
-            row = self.treemodel.iter_next(row)
-            counter += 1
+        dtc = cls = description = additional = ''
+        dtc = self.dtc_enter.get_text()
+        dtc = dtc.upper()
+        if DTC_CODES.has_key(dtc):
+            description = DTC_CODES[dtc]
+            additional = 'Coming soon'
+            cls = DTC_CODE_CLASSES[dtc[:3]]
+        if self.current_make:
+            if self.code_list.has_key(dtc):
+                description = self.code_list[dtc]
+                additional = 'Coming soon'
+                cls = DTC_CODE_CLASSES[dtc[:3]]
+
+        self._dtc_info.code = dtc
+        self._dtc_info.code_class = cls
+        self._dtc_info.description = description
+        self._dtc_info.additional = additional
+        self._dtc_info.lookup = dtc
+
 
     def stop(self):
         pass
         
 
     def start(self):
-        #self.current_make = self.app.prefs.get("vehicle.make")
-        self.current_make = ''
-        self.treemodel.clear()
+        self.current_make = self.app.prefs.get("vehicle.make")
         if self.current_make:
-            if self.current_make == "Accura":
-                self.code_list = DTC_CODES_ACURA
+            if self.current_make == "Acura":
+                from garmon.acura_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_ACURA
             if self.current_make == "Audi":
-                self.code_list = DTC_CODES_AUDI
+                from garmon.audi_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_AUDI
             if self.current_make == "BMW":
-                self.code_list = DTC_CODES_BMW
+                from garmon.bmw_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_BMW
             if self.current_make == "Chrysler":
-                self.code_list = DTC_CODES_CHRYSLER
+                from garmon.chrysler_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_CHRYSLER
             if self.current_make == "Ford":
-                self.code_list = DTC_CODES_FORD
+                from garmon.ford_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_FORD
             if self.current_make == "Chevrolet":
-                self.code_list = DTC_CODES_GMC
+                from garmon.chevrolet_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_GMC
             if self.current_make == "Honda":
-                self.code_list = DTC_CODES_HONDA
+                from garmon.honda_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_HONDA
             if self.current_make == "Hyundai":
-                self.code_list = DTC_CODES_HYUNDAI
+                from garmon.hyundai_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_HYUNDAI
             if self.current_make == "Infiniti":
-                self.code_list = DTC_CODES_INFINITI
+                from garmon.infiniti_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_INFINITI
             if self.current_make == "Isuzu":
-                self.code_list = DTC_CODES_ISUZU
+                from garmon.isuzu_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_ISUZU
             if self.current_make == "Jaguar":
-                self.code_list = DTC_CODES_JAGUAR
+                from garmon.jaguar_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_JAGUAR
             if self.current_make == "Kia":
-                self.code_list = DTC_CODES_KIA
+                from garmon.kia_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_KIA
             if self.current_make == "Land Rover":
-                self.code_list = DTC_CODES_LAND_ROVER
+                from garmon.land_rover_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_LAND_ROVER
             if self.current_make == "Lexus":
-                self.code_list = DTC_CODES_LEXUS
+                from garmon.lexus_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_LEXUS
             if self.current_make == "Mazda":
-                self.code_list = DTC_CODES_MAZDA
+               from garmon.mazda_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_MAZDA
             if self.current_make == "Mitsubishi":
-                self.code_list = DTC_CODES_MITSUBISHI
+                from garmon.mitsubishi_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_MITSUBISHI
             if self.current_make == "Nissan":
-                self.code_list = DTC_CODES_NISSAN
+                from garmon.nissan_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_NISSAN
             if self.current_make == "Subaru":
-                self.code_list = DTC_CODES_SUBARU
+                from garmon.subaru_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_SUBARU
             if self.current_make == "Toyota":
-                self.code_list = DTC_CODES_TOYOTA
+                from garmon.toyota_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_TOYOTA
             if self.current_make == "Volkswagen":
-                self.code_list = DTC_CODES_VW
+                from garmon.volkswagen_codes import DTC_CODES_MANUFACTURER
+                #self.code_list = DTC_CODES_VW
 
-            for code in self.code_list:
-                if DTC_CODE_CLASSES.has_key(code[:3]):
-                    iter = self.treemodel.append(None)
-                    self.treemodel.set(iter, COLUMN_DTC, code)  
+            self.code_list = DTC_CODES_MANUFACTURER
 
-            for code in DTC_CODES:
-                if not self.code_list.has_key(code):
-                    if DTC_CODE_CLASSES.has_key(code[:3]):
-                        iter = self.treemodel.append(None)
-                        self.treemodel.set(iter, COLUMN_DTC, code)  
-        else:
-            for code in DTC_CODES:
-                if DTC_CODE_CLASSES.has_key(code[:3]):
-                    iter = self.treemodel.append(None)
-                    self.treemodel.set(iter, COLUMN_DTC, code)  
-
-        self.treemodel.set_sort_column_id(COLUMN_DTC,gtk.SORT_ASCENDING)
-            
 
     def load(self):
         self.app.notebook.append_page(self, gtk.Label(_('DTC Lookup')))

@@ -26,7 +26,7 @@
 
 from gettext import gettext as _
 
-
+vehicle_makes = ("Accura", "Audi", "BMW", "Chrysler", "Chevrolet", "Ford", "Honda", "Hyundai", "Infiniti", "Isuzu", "Jaguar", "Kia", "Land Rover", "Lexus", "Mazda", "Mitsubishi", "Nissan", "Subaru", "Toyota", "Volkswagen")
 
 DTC_CODES = {
     "P0001": _("Fuel Volume Regulator Control Circuit/Open"),

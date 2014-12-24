@@ -167,7 +167,8 @@ class DTCLookup (gtk.VBox, Plugin):
         
 
     def start(self):
-        self.current_make = self.app.prefs.get("vehicle.make")
+        #self.current_make = self.app.prefs.get("vehicle.make")
+        self.current_make = ''
         self.treemodel.clear()
         if self.current_make:
             if self.current_make == "Accura":

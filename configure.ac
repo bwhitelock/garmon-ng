@@ -49,5 +49,6 @@ plugins/dtc_lookup/Makefile
 plugins/dtc_reader/Makefile
 plugins/live_data/Makefile
 plugins/freeze_frame_data/Makefile
+plugins/vehicle_info/Makefile
 po/Makefile.in
 ])

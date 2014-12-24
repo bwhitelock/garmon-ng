@@ -32,6 +32,7 @@ from gtk import glade
 import locale
 import gettext
 import os
+import datetime
 
 # set up gettext for translations
 locale.setlocale(locale.LC_ALL, '')
@@ -49,6 +50,7 @@ from garmon.obd_device import ELMDevice, OBDError, OBDDataError, OBDPortError
 from garmon.scheduler import Scheduler, SchedulerTimer
 from garmon.property_object import PropertyObject, gproperty, gsignal
 from garmon.backdoor import BackDoor
+from garmon.trouble_codes import vehicle_makes
 
 ui_info = \
 '''<ui>
@@ -184,6 +186,7 @@ class GarmonApp(gtk.Window, PropertyObject):
     
         baudrates = (9600, 38400, 57600, 115200)
         higher_rates = (57600, 115200)
+        fuel_types = ("Automatic","Gasoline","Deisel")
     
         self._prefs = PreferenceManager()
         self._pref_cbs = []
@@ -200,6 +203,13 @@ class GarmonApp(gtk.Window, PropertyObject):
         self._prefs.register('plugins.save', True)
         self._prefs.register('plugins.start', True)
         self._prefs.register('plugins.saved', '')
+        self._prefs.register('vehicle.name', '')
+        self._prefs.register('vehicle.plate', '')
+        self._prefs.register('vehicle.make', '')
+        self._prefs.register('vehicle.model', '')
+        self._prefs.register('vehicle.year', 0)
+        self._prefs.register('vehicle.fuel', 'Automatic')
+        self._prefs.register('vehicle.engine', '')
         
         fname = os.path.join(GLADE_DIR, 'prefs.glade')
         xml = gtk.glade.XML(fname, 'general_prefs_vbox', 'garmon')
@@ -223,7 +233,29 @@ class GarmonApp(gtk.Window, PropertyObject):
         cb_id = self._prefs.add_watch('device.portname', self._notify_port_cb)
         cb_id = self._prefs.add_watch('device.baudrate', self._notify_port_cb)
         
-                
+        xml = gtk.glade.XML(fname, 'vehicle_prefs_box1', 'garmon')
+
+        combo = xml.get_widget('preference;combo;int;vehicle.make')
+        model = gtk.ListStore(gobject.TYPE_STRING)
+        for item in vehicle_makes:
+            model.append((item,))
+        combo.set_model(model)
+
+        combo = xml.get_widget('preference;combo;int;vehicle.year')
+        model = gtk.ListStore(gobject.TYPE_INT)
+        now = datetime.datetime.now()
+        for item in reversed(range(1996,(now.year + 1))):
+            model.append((item,))
+        combo.set_model(model)
+
+        combo = xml.get_widget('preference;combo;int;vehicle.fuel')
+        model = gtk.ListStore(gobject.TYPE_STRING)
+        for item in fuel_types:
+            model.append((item,))
+        combo.set_model(model)
+
+        self._prefs.add_dialog_page(xml, 'vehicle_prefs_box1', _('Vehicle'))
+
 
     def _create_action_group(self):
         # GtkActionEntry

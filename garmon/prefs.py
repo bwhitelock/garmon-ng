@@ -94,7 +94,8 @@ class PreferenceManager(GObject):
         if isinstance(widget, gtk.ComboBox):
             def foreach_cb(model, path, iter):
                 value = model.get_value(iter, 0)
-                if value == int(pvalue):
+                value = str(value)
+                if value == pvalue:
                     widget.set_active_iter(iter)
             model = widget.get_model()
             model.foreach(foreach_cb)

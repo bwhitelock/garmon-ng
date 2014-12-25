@@ -600,6 +600,7 @@ def decode_dtc_result(result):
                            _('No data was received from the device'))
     dtc = []
 
+    result = result.replace("\n","")
     result = string.split(result, "\r")
     for data in result:
     

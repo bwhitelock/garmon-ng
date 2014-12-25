@@ -104,6 +104,12 @@ class DTCReader (gtk.VBox, Plugin):
         
 
     def _on_reset(self, app):
+        self.treemodel.clear()
+        dtc = cls = description = additional = ''
+        self._dtc_info.code = dtc
+        self._dtc_info.code_class = cls
+        self._dtc_info.description = description
+        self._dtc_info.additional = additional
         if app.device.connected:
             self.start()
         

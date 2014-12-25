@@ -23,18 +23,8 @@
                 <property name="justify">center</property>
                 <property name="use_markup">True</property>
               </widget>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">True</property>
-                <property name="position">0</property>
-              </packing>
             </child>
           </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">0</property>
-          </packing>
         </child>
         <child>
           <widget class="GtkHBox" id="vechicle_hbox1">
@@ -44,11 +34,8 @@
               <widget class="GtkLabel" id="vehicle_name_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vehicle Name:</property>
+                <property name="label" translatable="yes">Vehicle Name:  </property>
               </widget>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_name_data">
@@ -56,19 +43,13 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkLabel" id="vehicle_plate_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">License Plate:</property>
+                <property name="label" translatable="yes">License Plate: </property>
               </widget>
-              <packing>
-                <property name="position">2</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_plate_data">
@@ -76,16 +57,8 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">3</property>
-              </packing>
             </child>
           </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">2</property>
-          </packing>
         </child>
         <child>
           <widget class="GtkHBox" id="vechicle_hbox2">
@@ -95,11 +68,8 @@
               <widget class="GtkLabel" id="vehicle_make_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vehicle Make:</property>
+                <property name="label" translatable="yes">Vehicle Make:  </property>
               </widget>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_make_data">
@@ -107,19 +77,13 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkLabel" id="vehicle_model_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vehicle Model:</property>
+                <property name="label" translatable="yes">Vehicle Model: </property>
               </widget>
-              <packing>
-                <property name="position">2</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_model_data">
@@ -127,16 +91,8 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">3</property>
-              </packing>
             </child>
           </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">3</property>
-          </packing>
         </child>
         <child>
           <widget class="GtkHBox" id="vehicle_hbox3">
@@ -146,11 +102,8 @@
               <widget class="GtkLabel" id="vehicle_year_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Vehicle Year:</property>
+                <property name="label" translatable="yes">Vehicle Year:  </property>
               </widget>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_year_data">
@@ -158,19 +111,13 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkLabel" id="vehicle_vin_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">VIN:</property>
+                <property name="label" translatable="yes">Vehicle VIN:</property>
               </widget>
-              <packing>
-                <property name="position">2</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_vin_data">
@@ -178,16 +125,8 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">3</property>
-              </packing>
             </child>
           </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">4</property>
-          </packing>
         </child>
         <child>
           <widget class="GtkHBox" id="vehicle_hbox4">
@@ -197,11 +136,8 @@
               <widget class="GtkLabel" id="vehicle_engine_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Engine Size:</property>
+                <property name="label" translatable="yes">Engine Size:   </property>
               </widget>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_engine_data">
@@ -209,19 +145,13 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkLabel" id="vehicle_fuel_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">Fuel Type:</property>
+                <property name="label" translatable="yes">Fuel Type:     </property>
               </widget>
-              <packing>
-                <property name="position">2</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_fuel_data">
@@ -229,16 +159,8 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">3</property>
-              </packing>
             </child>
           </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">5</property>
-          </packing>
         </child>
         <child>
           <widget class="GtkHBox" id="vehicle_hbox5">
@@ -248,11 +170,8 @@
               <widget class="GtkLabel" id="vehicle_obd_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">OBD Standard:</property>
+                <property name="label" translatable="yes">OBD Standard:  </property>
               </widget>
-              <packing>
-                <property name="position">0</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_obd_data">
@@ -260,9 +179,6 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">1</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkLabel" id="vehicle_last_connect_label">
@@ -270,9 +186,6 @@
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Last Connected:</property>
               </widget>
-              <packing>
-                <property name="position">2</property>
-              </packing>
             </child>
             <child>
               <widget class="GtkEntry" id="vehicle_last_connect_data">
@@ -280,23 +193,10 @@
                 <property name="can_focus">False</property>
                 <property name="editable">False</property>
               </widget>
-              <packing>
-                <property name="position">3</property>
-              </packing>
             </child>
           </widget>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">True</property>
-            <property name="position">6</property>
-          </packing>
         </child>
       </widget>
-      <packing>
-        <property name="expand">False</property>
-        <property name="fill">True</property>
-        <property name="position">6</property>
-      </packing>
     </child>
   </widget>
 </glade-interface>

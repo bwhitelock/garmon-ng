@@ -569,13 +569,16 @@ class ELMDevice(OBDDevice, PropertyObject):
         def success_cb(cmd, result, args):
             if result:
                 result = string.split(result, "\r")
-                result = result[0]
+                if not result[0]:
+                    result = result[1]
+                else:
+                    result = result[0]
 
                 result = string.split(result)
                 result = string.join(result, "")
                 result = result[:2]
                 
-                if result == '44':
+                if (result == '44') or (result == 'OK'):
                     ret_cb(cmd, result, args)
                 else:
                     err_cb(cmd, OBDDataError, args)

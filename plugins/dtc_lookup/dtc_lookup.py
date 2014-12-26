@@ -100,7 +100,10 @@ class DTCLookup (gtk.VBox, Plugin):
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
         if plugin is self:
+            self.app.set_active_plugin(plugin)
             self._on_reset(self.app)
+        else:
+            self.stop()
 
 
     def _dtclookup_button_clicked(self, button):
@@ -122,6 +125,11 @@ class DTCLookup (gtk.VBox, Plugin):
         self._dtc_info.description = description
         self._dtc_info.additional = additional
         self._dtc_info.lookup = dtc
+
+
+    def restart(self):
+        self.stop()
+        self.start()
 
 
     def stop(self):

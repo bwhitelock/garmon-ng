@@ -205,20 +205,12 @@ class PreferenceManager(GObject):
         
     def show_dialog(self):
         res = self._dialog.run()
-        print "show_dialog preferences"
         self._dialog.hide()
-        print "after hide preferences"
-        print "send reset"
-        self.app.reload()
-        if self.app.device.connected:
-            self.app.reload()
+        self.app.reload_active_plugin()
         
         
     def hide_dialog(self):
-        print "hide_dialog preferences"
         self._dialog.hide()
-        print "send reset"
-        #self.app.reset()
         
         
     def add_dialog_page(self, xml, root, name):

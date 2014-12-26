@@ -393,7 +393,6 @@ class GarmonApp(gtk.Window, PropertyObject):
            and tries to reopen it."""
         if self.device.connected:
             for name, plugin in self._plugman.plugins:
-                print "plugin " + str(plugin)
                 plugin.stop()
             self.device.close()
 
@@ -411,11 +410,11 @@ class GarmonApp(gtk.Window, PropertyObject):
         finally:
             self.emit('reset')   
 
-    def reload(self):
-        self._plugman.get_active_plugin()
-        #plugin = self.plugman.get_active_plugin()
-        #plugin.stop()
-        #plugin.start()
+    def reload_active_plugin(self):
+        self.active_plugin.restart()
+
+    def set_active_plugin(self, plugin):
+        self.active_plugin = plugin
 
         
 def main():

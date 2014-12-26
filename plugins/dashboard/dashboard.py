@@ -195,6 +195,7 @@ class DashBoard (gtk.VBox, Plugin):
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
         if plugin is self:
+            self.app.set_active_plugin(plugin)
             self.start()
         else:
             self.stop()
@@ -225,6 +226,10 @@ class DashBoard (gtk.VBox, Plugin):
                     self.app.scheduler.add(gauge.sensor, False)
             self.status = STATUS_WORKING
         
+    def restart(self):
+        self.stop()
+        self.start()
+
         
     def stop (self):
         if not self.status == STATUS_STOP:

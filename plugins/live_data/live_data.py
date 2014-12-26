@@ -231,6 +231,10 @@ class LiveData (gtk.VBox, Plugin):
                 else:
                     view.supported=False
    
+    def restart(self):
+        self.stop()
+        self.start()
+
             
     def start(self):
         if self.status == STATUS_WORKING:
@@ -277,6 +281,7 @@ class LiveData (gtk.VBox, Plugin):
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
         if plugin is self:
+            self.app.set_active_plugin(plugin)
             self.start()
         else:
             self.stop()

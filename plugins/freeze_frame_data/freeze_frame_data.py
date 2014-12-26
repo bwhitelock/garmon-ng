@@ -173,6 +173,11 @@ class FreezeFrameData (gtk.VBox, Plugin):
                 view.supported=False
                 view.active=False
    
+
+    def restart(self):
+        self.stop()
+        self.start()
+
             
     def start(self):
         for view in self.views:
@@ -206,7 +211,10 @@ class FreezeFrameData (gtk.VBox, Plugin):
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
         if plugin is self:
+            self.app.set_active_plugin(plugin)
             self.start()
+        else:
+            self.stop()
 
             
     def load(self):

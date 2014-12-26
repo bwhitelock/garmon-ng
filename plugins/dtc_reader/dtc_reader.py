@@ -103,14 +103,14 @@ class DTCReader (gtk.VBox, Plugin):
                                               self._notebook_page_change_cb)
         
 
-    def _on_reset(self, app):
+    def _on_reset(self):
         self.treemodel.clear()
         dtc = cls = description = additional = ''
         self._dtc_info.code = dtc
         self._dtc_info.code_class = cls
         self._dtc_info.description = description
         self._dtc_info.additional = additional
-        if app.device.connected:
+        if self.app.device.connected:
             self.start()
         
 
@@ -135,7 +135,14 @@ class DTCReader (gtk.VBox, Plugin):
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
         if plugin is self:
-            self._on_reset(self.app)
+            self.app.set_active_plugin(plugin)
+            self._on_reset()
+        else:
+            self.stop()
+
+
+    def restart(self):
+        self._on_reset()
 
 
     def _reread_button_clicked(self, button):

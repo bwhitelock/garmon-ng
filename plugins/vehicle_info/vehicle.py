@@ -96,7 +96,15 @@ class Vehicle (gtk.VBox, Plugin):
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
         if plugin is self:
-            self._on_reset(self.app)
+            self.app.set_active_plugin(plugin)
+            self.start()
+        else:
+            self.stop()
+
+
+    def restart(self):
+        self.stop()
+        self.start()
 
 
     def stop(self):

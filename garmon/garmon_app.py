@@ -188,7 +188,7 @@ class GarmonApp(gtk.Window, PropertyObject):
         higher_rates = (57600, 115200)
         fuel_types = ("Automatic","Gasoline","Deisel")
     
-        self._prefs = PreferenceManager()
+        self._prefs = PreferenceManager(self)
         self._pref_cbs = []
 
         self._prefs.register('mil.on-color', '#F7D30D')
@@ -393,6 +393,7 @@ class GarmonApp(gtk.Window, PropertyObject):
            and tries to reopen it."""
         if self.device.connected:
             for name, plugin in self._plugman.plugins:
+                print "plugin " + str(plugin)
                 plugin.stop()
             self.device.close()
 
@@ -410,6 +411,11 @@ class GarmonApp(gtk.Window, PropertyObject):
         finally:
             self.emit('reset')   
 
+    def reload(self):
+        self._plugman.get_active_plugin()
+        #plugin = self.plugman.get_active_plugin()
+        #plugin.stop()
+        #plugin.start()
 
         
 def main():

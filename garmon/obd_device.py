@@ -505,6 +505,8 @@ class ELMDevice(OBDDevice, PropertyObject):
             raise ValueError, 'command %s is not supported' % command
             
         def success_cb(cmd, res, args):
+            res = res.replace('\n','')
+            res = res.replace('\r','')
             ret = []
             ret.append(res)
             ret_cb(command, ret, args)
@@ -520,7 +522,6 @@ class ELMDevice(OBDDevice, PropertyObject):
        
 
     def read_command(self, command, ret_cb, err_cb, *args):
-          
         if command in self._special_commands.keys():
             self.read_device_data(command, ret_cb, err_cb, args)
         elif command[:2] == '01' and command in self._supported_pids:
@@ -578,9 +579,12 @@ class ELMDevice(OBDDevice, PropertyObject):
                 result = string.join(result, "")
                 result = result[:2]
                 
+                #if result == '44':
                 if (result == '44') or (result == 'OK'):
+                    print "return ret_cb " + str(result)
                     ret_cb(cmd, result, args)
                 else:
+                    print "return err_cb " + str(result)
                     err_cb(cmd, OBDDataError, args)
             else:
                 err_cb(cmd, OBDDataError, args)

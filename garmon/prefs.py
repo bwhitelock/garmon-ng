@@ -71,9 +71,11 @@ class _Watch(object):
 class PreferenceManager(GObject):
     __gtype_name__ ='PreferenceManager'
     
-    def __init__(self):
+    def __init__(self,app):
         GObject.__init__(self)
         
+        self.app = app
+
         self._config = ConfigParser()
         self._filename = os.path.join(save_config_path("garmon"), "config")
         self._config.read(self._filename)
@@ -203,11 +205,20 @@ class PreferenceManager(GObject):
         
     def show_dialog(self):
         res = self._dialog.run()
+        print "show_dialog preferences"
         self._dialog.hide()
+        print "after hide preferences"
+        print "send reset"
+        self.app.reload()
+        if self.app.device.connected:
+            self.app.reload()
         
         
     def hide_dialog(self):
+        print "hide_dialog preferences"
         self._dialog.hide()
+        print "send reset"
+        #self.app.reset()
         
         
     def add_dialog_page(self, xml, root, name):

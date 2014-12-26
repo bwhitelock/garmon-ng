@@ -108,6 +108,8 @@ class PluginManager(gtk.Dialog, PropertyObject):
         hbox.pack_start(self._info_box, False)
         
         self._load_available_plugins()
+        self.active_plugin = ''
+        self.listview = listview
 
 
     def _create_treemodel(self):
@@ -169,6 +171,8 @@ class PluginManager(gtk.Dialog, PropertyObject):
                                           COLUMN_DESCRIPTION)
 
         self._info_box.set(name, version, author, description)
+        self.active_plugin = name
+        print "plugin _selection_changed"
 
 
     def _load_plugin(self, plugin, path):
@@ -292,7 +296,13 @@ class PluginManager(gtk.Dialog, PropertyObject):
         string = self.app.prefs.get('plugins.saved')
         plugins = string.split(',')
         if plugins:
-            self._treemodel.foreach(self._activate_saved_plugins_cb, plugins)        
+            self._treemodel.foreach(self._activate_saved_plugins_cb, plugins)
+
+
+    def get_active_plugin(self):
+        print "active plugin " + str(self.active_plugin)
+        print "listview selection " + str(self.listview.get_selection())
+
         
                
     def run(self):

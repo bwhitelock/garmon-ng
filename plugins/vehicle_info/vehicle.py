@@ -35,6 +35,7 @@ import garmon.plugin
 
 from garmon.plugin import Plugin, STATUS_STOP, STATUS_WORKING, STATUS_PAUSE
 from garmon.property_object import PropertyObject, gproperty
+import garmon.obd_device
 from garmon.obd_device import OBDDataError, OBDPortError
 #from garmon.trouble_codes import DTC_CODES, DTC_CODE_CLASSES
 from garmon.trouble_codes import *
@@ -56,6 +57,7 @@ class Vehicle (gtk.VBox, Plugin):
         self.app = app
         self.dir = os.path.dirname(__file__)
         self.status = STATUS_STOP
+        self.current_protocol = "Unknown"
         
         fname = os.path.join(self.dir, 'vehicle.glade')
         self._glade = glade.XML(fname, 'vehicle_info_box')
@@ -95,6 +97,7 @@ class Vehicle (gtk.VBox, Plugin):
 
     def _notebook_page_change_cb (self, notebook, no_use, page):
         plugin = notebook.get_nth_page(page)
+        print "notebook plugin " + str(plugin)
         if plugin is self:
             self._on_reset(self.app)
 
@@ -104,6 +107,17 @@ class Vehicle (gtk.VBox, Plugin):
         
 
     def start(self):
+        def success_cb(cmd, protocols, args):
+            self.current_protocol = protocols[0]
+            self._vehicle_obd.set_text(self.current_protocol)
+        def error_cb(cmd,error,args):
+            self.current_protocol = "Protocol read error"
+
+        if self.app.device.connected:
+            try:
+                self.app.device.read_command('protocol',success_cb,error_cb)
+            except OBDPortError, e:
+                self.current_protocol = "Port Not Open"
         self.current_make = self.app.prefs.get("vehicle.make")
         self._vehicle_name.set_text(self.app.prefs.get("vehicle.name"))
         self._vehicle_plate.set_text(self.app.prefs.get("vehicle.plate"))
@@ -116,7 +130,7 @@ class Vehicle (gtk.VBox, Plugin):
         self._vehicle_vin.set_text("Unknown")
         self._vehicle_engine.set_text(self.app.prefs.get("vehicle.engine"))
         self._vehicle_fuel.set_text(self.app.prefs.get("vehicle.fuel"))
-        self._vehicle_obd.set_text("Unknown")
+        self._vehicle_obd.set_text(self.current_protocol)
         self._vehicle_last_connect.set_text("Unknown")
 
     def load(self):

@@ -6,6 +6,17 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+Makefile
+Makefile.in
+config.log
+configure
+config.h
+config.h.in~
+autom4te.cache/
+config.status
+compile
+aclocal.m4
+stamp-h1
 .Python
 env/
 build/

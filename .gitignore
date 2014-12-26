@@ -27,6 +27,14 @@ eggs/
 lib/
 lib64/
 parts/
+garmon.desktop
+garmon.desktop.in
+defs.py
+.intltool-merge-cache
+POTFILES
+es.gmo
+nl.gmo
+stamp-it
 sdist/
 var/
 *.egg-info/

@@ -505,6 +505,8 @@ class ELMDevice(OBDDevice, PropertyObject):
             raise ValueError, 'command %s is not supported' % command
             
         def success_cb(cmd, res, args):
+            res = res.replace('\n','')
+            res = res.replace('\r','')
             ret = []
             ret.append(res)
             ret_cb(command, ret, args)
